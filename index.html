@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <h2>Super 74</h2>
+        <input type="text" id="search" placeholder="Search products">
+        <button onclick="showCart()">Cart (<span id="count">0</span>)</button>
+    </nav>
+
+    <h1>Items-List</h1>
+
+    <select id="category" onchange="displayProducts()">
+        <option value="All">All Categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Accessories">Accessories</option>
+    </select>
+
+    <select id="sort" onchange="displayProducts()">
+        <option value="default">Sort By</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+    </select>
+
+    <div id="products"></div>
+
+    <section id="cart">
+        <h1>Shopping Cart</h1>
+        <div id="items"></div>
+
+        <p>Subtotal: ₹<span id="subtotal">0</span></p>
+        <p>Discount: ₹<span id="discount">0</span></p>
+        <h3>Total: ₹<span id="total">0</span></h3>
+
+        <input id="coupon" placeholder="Coupon code">
+        <button onclick="applyCoupon()">Apply</button>
+        <p id="message"></p>
+        <button onclick="checkout()">Checkout</button>
+    </section>
+
+    <section id="checkout">
+        <h1>Checkout</h1>
+        <form onsubmit="placeOrder(event)">
+            <input id="name" placeholder="Name" required>
+            <input id="address" placeholder="Address" required>
+            <input id="phone" placeholder="Phone number"
+                   type="tel" pattern="[0-9]{10}" required>
+            <button type="submit">Place Order</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
